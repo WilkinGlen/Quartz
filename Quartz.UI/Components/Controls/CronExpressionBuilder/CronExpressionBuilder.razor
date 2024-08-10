@@ -1,0 +1,52 @@
+﻿<div class="container">
+    <div class="row p-2">
+        <div class="col">
+            <MudStack Row>
+                <MudText>Cron Expression</MudText>
+                <MudTextField @bind-Value="@this.cronExpression" />
+            </MudStack>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col">
+            <MudStack Row>
+                <MudText>Schedule Type</MudText>
+                <MudSelect T="ScheduleTypes" AnchorOrigin="@Origin.BottomCenter" @bind-Value="@this.selectedScheduleType" >
+                    @foreach (var type in this.scheduleTypes)
+                    {
+                        <MudSelectItem Value="@type" />
+                    }
+                </MudSelect>
+            </MudStack>
+        </div>
+    </div>
+    <div class="row p-2">
+        <div class="col">
+            @switch(this.selectedScheduleType)
+            {
+                case ScheduleTypes.Hourly:
+                    {
+                        <HourlyExpressionBuilder />
+                        break;
+                    }
+                case ScheduleTypes.Daily:
+                    {
+                        <DailyExpressionBuilder OnTimeChanged="@this.DailyExpressionBuilderTimeChangedHandler" />
+                        break;
+                    }
+                case ScheduleTypes.Weekly:
+                    {
+                        <WeeklyExpressionBuilder />
+                        break;
+                    }
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        border-style: solid;
+        border-color: red;
+    }
+</style>
