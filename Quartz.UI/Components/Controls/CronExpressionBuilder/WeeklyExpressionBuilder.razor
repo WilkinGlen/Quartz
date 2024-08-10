@@ -1,5 +1,12 @@
-﻿<h3>WeeklyExpressionBuilder</h3>
-
-@code {
-
-}
+﻿<MudStack>
+    <MudRadioGroup T="string" ValueChanged="DaySelected">
+        <MudRadio Value="@("Monday")" >Monday</MudRadio>
+        <MudRadio Value="@("Tuesday")">Tuesday</MudRadio>
+        <MudRadio Value="@("Wednesday")">Wednesday</MudRadio>
+        <MudRadio Value="@("Thursday")">Thursday</MudRadio>
+        <MudRadio Value="@("Friday")">Friday</MudRadio>
+        <MudRadio Value="@("Saturday")">Saturday</MudRadio>
+        <MudRadio Value="@("Sunday")">Sunday</MudRadio>
+    </MudRadioGroup>
+    <MudTimePicker Label="Select time for schedule" TimeChanged="@this.TimeChangedHandler" />
+</MudStack>

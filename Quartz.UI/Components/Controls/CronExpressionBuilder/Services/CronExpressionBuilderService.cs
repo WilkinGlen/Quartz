@@ -4,10 +4,18 @@ using Quartz.Impl.Triggers;
 
 public static class CronExpressionBuilderService
 {
-    public static string? BuildDailyCronExpression(TimeSpan timeSpan) => 
+    public static string? BuildCronExpression(TimeSpan timeSpan) => 
         timeSpan != TimeSpan.Zero
             ? ((CronTriggerImpl)CronScheduleBuilder
                 .DailyAtHourAndMinute(timeSpan.Hours, timeSpan.Minutes)
+                .Build())
+                .CronExpressionString
+            : null;
+
+    public static string? BuildCronExpression(DayOfWeek dayOfWeek, TimeSpan timeSpan) =>
+        timeSpan != TimeSpan.Zero
+            ? ((CronTriggerImpl)CronScheduleBuilder
+                .WeeklyOnDayAndHourAndMinute(dayOfWeek, timeSpan.Hours, timeSpan.Minutes)
                 .Build())
                 .CronExpressionString
             : null;

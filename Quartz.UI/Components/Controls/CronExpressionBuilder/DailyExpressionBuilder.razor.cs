@@ -5,7 +5,13 @@ using Microsoft.AspNetCore.Components;
 public partial class DailyExpressionBuilder
 {
     [Parameter]
-    public EventCallback<TimeSpan?> OnTimeChanged { get; set; }
+    public EventCallback<TimeSpan> OnTimeChanged { get; set; }
 
-    private void TimeChangedHandler(TimeSpan? time) => this.OnTimeChanged.InvokeAsync(time);
+    private void TimeChangedHandler(TimeSpan? time)
+    {
+        if (time != null)
+        {
+            this.OnTimeChanged.InvokeAsync(time.Value);
+        }
+    }
 }
