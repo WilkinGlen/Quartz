@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Components;
 
 public partial class DailyExpressionBuilder
 {
-    private TimeSpan? time;
-
     [Parameter]
     public EventCallback<TimeSpan?> OnTimeChanged { get; set; }
 
-    private void Submit() => this.OnTimeChanged.InvokeAsync(this.time);
+    private void TimeChangedHandler(TimeSpan? time) => this.OnTimeChanged.InvokeAsync(time);
 }

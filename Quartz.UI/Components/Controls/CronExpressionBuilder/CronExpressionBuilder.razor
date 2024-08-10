@@ -1,13 +1,13 @@
 ﻿<div class="container">
-    <div class="row p-2">
+    <div class="row m-5">
         <div class="col">
             <MudStack Row>
                 <MudText>Cron Expression</MudText>
-                <MudTextField @bind-Value="@this.cronExpression" />
+                <MudTextField @bind-Value="@this.cronExpression" ReadOnly="@true" />
             </MudStack>
         </div>
     </div>
-    <div class="row p-2">
+    <div class="row m-5">
         <div class="col">
             <MudStack Row>
                 <MudText>Schedule Type</MudText>
@@ -20,7 +20,7 @@
             </MudStack>
         </div>
     </div>
-    <div class="row p-2">
+    <div class="row m-5">
         <div class="col">
             @switch(this.selectedScheduleType)
             {
