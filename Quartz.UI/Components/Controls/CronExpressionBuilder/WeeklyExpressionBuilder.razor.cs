@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Components;
 
 public partial class WeeklyExpressionBuilder
 {
-    private (bool Mon, bool Tue, bool Wed, bool Thu, bool Fri, bool Sat, bool Sun)  days;
     private DayOfWeek? selectedDay;
     private TimeSpan? selectedTime;
 
@@ -27,7 +26,7 @@ public partial class WeeklyExpressionBuilder
     {
         if (this.selectedDay != null && this.selectedTime != null)
         {
-            this.OnDayTimeChanged.InvokeAsync((this.selectedDay.Value, this.selectedTime.Value));
+            _ = this.OnDayTimeChanged.InvokeAsync((this.selectedDay.Value, this.selectedTime.Value));
         }
     }
 }

@@ -11,7 +11,7 @@ public partial class DailyExpressionBuilder
     {
         if (time != null)
         {
-            this.OnTimeChanged.InvokeAsync(time.Value);
+            _ = this.OnTimeChanged.InvokeAsync(time.Value);
         }
     }
 }

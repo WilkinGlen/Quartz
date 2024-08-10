@@ -34,8 +34,8 @@ public class QuartzDataReadService : IQuartzDataReadService
 
     public async Task<FrozenSet<string>> GetGroupNamesAsync()
     {
-        var jobDetails = await scheduler.GetJobDetail(new JobKey("GlensJob", "GlensGroup"));
-        var jobGroupNames = await this.scheduler.GetJobGroupNames();
+        _ = await this.scheduler.GetJobDetail(new JobKey("GlensJob", "GlensGroup"));
+        _ = await this.scheduler.GetJobGroupNames();
         var triggerGroupNames = await this.scheduler.GetTriggerGroupNames();
         return triggerGroupNames.ToFrozenSet();
     }

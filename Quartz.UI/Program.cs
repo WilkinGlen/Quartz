@@ -1,7 +1,5 @@
 using MudBlazor.Services;
-using Quartz;
 using Quartz.UI.Components;
-using QuartzServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +12,8 @@ var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    app.UseHsts();
+    _ = app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    _ = app.UseHsts();
 }
 
 app.UseHttpsRedirection();

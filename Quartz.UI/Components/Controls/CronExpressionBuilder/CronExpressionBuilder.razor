@@ -39,6 +39,11 @@
                         <WeeklyExpressionBuilder OnDayTimeChanged="@this.WeeklyExpressionBuilderDayTimeChangedHandler" />
                         break;
                     }
+                case ScheduleTypes.MultipleDays:
+                    {
+                        <MultipleDaysExpressionBuilder OnDaysTimeChanged="@this.MultipleDaysExpressionBuilderDaysTimeChangedHandler" />
+                        break;
+                    }
             }
         </div>
     </div>
