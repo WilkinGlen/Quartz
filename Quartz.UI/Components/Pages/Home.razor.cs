@@ -4,6 +4,6 @@ public partial class Home
 {
     private string? cronExpression;
 
-    private void CronExpressionBuilderOnCronExpressionChanged(string cronExpression) =>
+    private void CronExpressionBuilderOnCronExpressionChangedHandler(string cronExpression) =>
         this.cronExpression = cronExpression;
 }

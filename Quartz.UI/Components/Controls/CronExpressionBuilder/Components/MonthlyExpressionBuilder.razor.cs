@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class MonthlyExpressionBuilder
+public sealed partial class MonthlyExpressionBuilder
 {
     private readonly IEnumerable<int> days = Enumerable.Range(1, 28);
     private int selectedDay = 1;

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Quartz.UI.Components.Controls.CronExpressionBuilder.Services;
 using System.Reflection.Metadata;
 
-public partial class CronExpressionBuilder
+public sealed partial class CronExpressionBuilder
 {
     private string? cronExpression;
     private readonly List<ScheduleTypes> scheduleTypes = Enum.GetValues<ScheduleTypes>().Select(t => t).ToList();
@@ -22,7 +22,7 @@ public partial class CronExpressionBuilder
     private void MultipleDaysExpressionBuilderDaysTimeChangedHandler((TimeSpan timeSpan, DayOfWeek[] daysOfTheWeek) values) =>
         this.cronExpression = CronExpressionBuilderService.BuildCronExpression(values.timeSpan, values.daysOfTheWeek);
 
-    private void MonthlyExpressionBuilderOnDayTimeChanged((int day, TimeSpan timeSpan) values) =>
+    private void MonthlyExpressionBuilderDayTimeChangedHandler((int day, TimeSpan timeSpan) values) =>
         this.cronExpression = CronExpressionBuilderService.BuildCronExpression(values.day, values.timeSpan);
 
     private void SubmitClickedHandler() =>

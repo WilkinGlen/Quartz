@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class MultipleDaysExpressionBuilder
+public sealed partial class MultipleDaysExpressionBuilder
 {
     private (bool Mon, bool Tue, bool Wed, bool Thu, bool Fri, bool Sat, bool Sun) days;
     private TimeSpan? selectedTime;

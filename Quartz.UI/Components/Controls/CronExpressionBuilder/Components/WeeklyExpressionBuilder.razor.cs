@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class WeeklyExpressionBuilder
+public sealed partial class WeeklyExpressionBuilder
 {
     private DayOfWeek? selectedDay;
     private TimeSpan? selectedTime;

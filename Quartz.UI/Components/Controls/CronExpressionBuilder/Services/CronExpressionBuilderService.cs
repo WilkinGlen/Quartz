@@ -3,9 +3,9 @@
 using Quartz.Impl.Triggers;
 using System;
 
-public static class CronExpressionBuilderService
+internal static class CronExpressionBuilderService
 {
-    public static string? BuildCronExpression(TimeSpan timeSpan) =>
+    internal static string? BuildCronExpression(TimeSpan timeSpan) =>
         timeSpan != TimeSpan.Zero
             ? ((CronTriggerImpl)CronScheduleBuilder
                 .DailyAtHourAndMinute(timeSpan.Hours, timeSpan.Minutes)
@@ -13,7 +13,7 @@ public static class CronExpressionBuilderService
                 .CronExpressionString
             : null;
 
-    public static string? BuildCronExpression(DayOfWeek dayOfWeek, TimeSpan timeSpan) =>
+    internal static string? BuildCronExpression(DayOfWeek dayOfWeek, TimeSpan timeSpan) =>
         timeSpan != TimeSpan.Zero
             ? ((CronTriggerImpl)CronScheduleBuilder
                 .WeeklyOnDayAndHourAndMinute(dayOfWeek, timeSpan.Hours, timeSpan.Minutes)
@@ -21,7 +21,7 @@ public static class CronExpressionBuilderService
                 .CronExpressionString
             : null;
 
-    public static string? BuildCronExpression(TimeSpan timeSpan, params DayOfWeek[] daysOfWeek) =>
+    internal static string? BuildCronExpression(TimeSpan timeSpan, params DayOfWeek[] daysOfWeek) =>
         timeSpan != TimeSpan.Zero
             ? ((CronTriggerImpl)CronScheduleBuilder
                 .AtHourAndMinuteOnGivenDaysOfWeek(timeSpan.Hours, timeSpan.Minutes, daysOfWeek)
@@ -29,7 +29,7 @@ public static class CronExpressionBuilderService
                 .CronExpressionString
             : null;
 
-    public static string? BuildCronExpression(int day, TimeSpan timeSpan) =>
+    internal static string? BuildCronExpression(int day, TimeSpan timeSpan) =>
         timeSpan != TimeSpan.Zero
             ? ((CronTriggerImpl)CronScheduleBuilder
                 .MonthlyOnDayAndHourAndMinute(day, timeSpan.Hours, timeSpan.Minutes)

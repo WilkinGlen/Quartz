@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Components;
 
-public partial class DailyExpressionBuilder
+public sealed partial class DailyExpressionBuilder
 {
     [Parameter]
     public EventCallback<TimeSpan> OnTimeChanged { get; set; }
