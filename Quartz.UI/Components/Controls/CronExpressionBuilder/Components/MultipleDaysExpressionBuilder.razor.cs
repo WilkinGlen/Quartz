@@ -1,4 +1,4 @@
-﻿namespace Quartz.UI.Components.Controls.CronExpressionBuilder;
+﻿namespace Quartz.UI.Components.Controls.CronExpressionBuilder.Components;
 
 using Microsoft.AspNetCore.Components;
 
