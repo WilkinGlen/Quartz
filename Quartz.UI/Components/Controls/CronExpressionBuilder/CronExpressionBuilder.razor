@@ -24,11 +24,6 @@
         <div class="col">
             @switch(this.selectedScheduleType)
             {
-                case ScheduleTypes.Hourly:
-                    {
-                        <HourlyExpressionBuilder />
-                        break;
-                    }
                 case ScheduleTypes.Daily:
                     {
                         <DailyExpressionBuilder OnTimeChanged="@this.DailyExpressionBuilderTimeChangedHandler" />
@@ -42,6 +37,11 @@
                 case ScheduleTypes.MultipleDays:
                     {
                         <MultipleDaysExpressionBuilder OnDaysTimeChanged="@this.MultipleDaysExpressionBuilderDaysTimeChangedHandler" />
+                        break;
+                    }
+                case ScheduleTypes.Monthly:
+                    {
+                        <MonthlyExpressionBuilder OnDayTimeChanged="@this.MonthlyExpressionBuilderOnDayTimeChanged" />
                         break;
                     }
             }

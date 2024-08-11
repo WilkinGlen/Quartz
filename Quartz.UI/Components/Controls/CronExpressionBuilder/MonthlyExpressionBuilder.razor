@@ -1,0 +1,9 @@
+﻿<MudStack>
+    <MudSelect T="int" Value="@this.selectedDay" ValueChanged="@this.SelectedDayChanged">
+        @foreach(var day in this.days)
+        {
+            <MudSelectItem Value="@day" />
+        }
+    </MudSelect>
+    <MudTimePicker Label="Select time for schedule" TimeChanged="@this.TimeChangedHandler" />
+</MudStack>

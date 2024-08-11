@@ -17,12 +17,15 @@ public partial class CronExpressionBuilder
     private void MultipleDaysExpressionBuilderDaysTimeChangedHandler((TimeSpan timeSpan, DayOfWeek[] daysOfTheWeek) values) =>
         this.cronExpression = CronExpressionBuilderService.BuildCronExpression(values.timeSpan, values.daysOfTheWeek);
 
+    private void MonthlyExpressionBuilderOnDayTimeChanged((int day, TimeSpan timeSpan) values) =>
+        this.cronExpression = CronExpressionBuilderService.BuildCronExpression(values.day, values.timeSpan);
+
     private enum ScheduleTypes
     {
         Select,
-        Hourly,
         Daily,
         MultipleDays,
-        Weekly
+        Weekly,
+        Monthly
     }
 }

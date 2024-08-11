@@ -28,4 +28,12 @@ public static class CronExpressionBuilderService
                 .Build())
                 .CronExpressionString
             : null;
+
+    public static string? BuildCronExpression(int day, TimeSpan timeSpan) =>
+        timeSpan != TimeSpan.Zero
+            ? ((CronTriggerImpl)CronScheduleBuilder
+                .MonthlyOnDayAndHourAndMinute(day, timeSpan.Hours, timeSpan.Minutes)
+                .Build())
+                .CronExpressionString
+            : null;
 }
