@@ -1,5 +1,5 @@
 ﻿<MudStack>
-    <MudSelect T="int" Value="@this.selectedDay" ValueChanged="@this.SelectedDayChanged">
+    <MudSelect T="int" Value="@this.selectedDay" Label="Select day of the month" ValueChanged="@this.SelectedDayChanged">
         @foreach(var day in this.days)
         {
             <MudSelectItem Value="@day" />

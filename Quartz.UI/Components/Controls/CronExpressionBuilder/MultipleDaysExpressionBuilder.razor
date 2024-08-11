@@ -1,5 +1,5 @@
 ﻿<MudStack>
-    <MudStack Row>
+    <MudStack Row Wrap="@Wrap.Wrap">
         <MudCheckBox Value="@this.days.Mon" Label="Monday" ValueChanged="@(new EventCallback<bool>(this, MonChangedHandler))"/>
         <MudCheckBox Value="@this.days.Tue" Label="Tuesday" ValueChanged="@(new EventCallback<bool>(this, TueChangedHandler))" />
         <MudCheckBox Value="@this.days.Wed" Label="Wednesday" ValueChanged="@(new EventCallback<bool>(this, WedChangedHandler))" />

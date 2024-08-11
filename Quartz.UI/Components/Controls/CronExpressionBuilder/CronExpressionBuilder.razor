@@ -1,57 +1,54 @@
-﻿<div class="container">
-    <div class="row m-5">
-        <div class="col">
-            <MudStack Row>
-                <MudText>Cron Expression</MudText>
-                <MudTextField @bind-Value="@this.cronExpression" ReadOnly="@true" />
-            </MudStack>
-        </div>
-    </div>
-    <div class="row m-5">
-        <div class="col">
-            <MudStack Row>
-                <MudText>Schedule Type</MudText>
-                <MudSelect T="ScheduleTypes" AnchorOrigin="@Origin.BottomCenter" @bind-Value="@this.selectedScheduleType" >
-                    @foreach (var type in this.scheduleTypes)
-                    {
-                        <MudSelectItem Value="@type" />
-                    }
-                </MudSelect>
-            </MudStack>
-        </div>
-    </div>
-    <div class="row m-5">
-        <div class="col">
-            @switch(this.selectedScheduleType)
+﻿<MudStack Class="cron-expression-builder">
+    <MudStack Row>
+        <MudText Class="mud-label">Cron Expression</MudText>
+        <MudTextField @bind-Value="@this.cronExpression" ReadOnly="@true" />
+    </MudStack>
+    <MudStack Row>
+        <MudText Class="mud-label">Schedule Type</MudText>
+        <MudSelect T="ScheduleTypes" AnchorOrigin="@Origin.BottomCenter" @bind-Value="@this.selectedScheduleType">
+            @foreach (var type in this.scheduleTypes)
             {
-                case ScheduleTypes.Daily:
-                    {
-                        <DailyExpressionBuilder OnTimeChanged="@this.DailyExpressionBuilderTimeChangedHandler" />
-                        break;
-                    }
-                case ScheduleTypes.Weekly:
-                    {
-                        <WeeklyExpressionBuilder OnDayTimeChanged="@this.WeeklyExpressionBuilderDayTimeChangedHandler" />
-                        break;
-                    }
-                case ScheduleTypes.MultipleDays:
-                    {
-                        <MultipleDaysExpressionBuilder OnDaysTimeChanged="@this.MultipleDaysExpressionBuilderDaysTimeChangedHandler" />
-                        break;
-                    }
-                case ScheduleTypes.Monthly:
-                    {
-                        <MonthlyExpressionBuilder OnDayTimeChanged="@this.MonthlyExpressionBuilderOnDayTimeChanged" />
-                        break;
-                    }
+                <MudSelectItem Value="@type" />
             }
-        </div>
-    </div>
-</div>
+        </MudSelect>
+    </MudStack>
+    @switch (this.selectedScheduleType)
+    {
+        case ScheduleTypes.Daily:
+            {
+                <DailyExpressionBuilder OnTimeChanged="@this.DailyExpressionBuilderTimeChangedHandler" />
+                break;
+            }
+        case ScheduleTypes.Weekly:
+            {
+                <WeeklyExpressionBuilder OnDayTimeChanged="@this.WeeklyExpressionBuilderDayTimeChangedHandler" />
+                break;
+            }
+        case ScheduleTypes.MultipleDays:
+            {
+                <MultipleDaysExpressionBuilder OnDaysTimeChanged="@this.MultipleDaysExpressionBuilderDaysTimeChangedHandler" />
+                break;
+            }
+        case ScheduleTypes.Monthly:
+            {
+                <MonthlyExpressionBuilder OnDayTimeChanged="@this.MonthlyExpressionBuilderOnDayTimeChanged" />
+                break;
+            }
+    }
+    <MudStack Row>
+        <MudSpacer />
+        <MudButton Color="@Color.Primary" Variant="@Variant.Filled" OnClick="this.SubmitClickedHandler">Submit</MudButton>
+    </MudStack>
+</MudStack>
 
 <style>
-    .container {
-        border-style: solid;
-        border-color: red;
+    .cron-expression-builder {
+        margin: 1rem;
+        padding: 1rem;
+        border: thin lightgray solid;
+    }
+
+    .mud-label {
+        padding-top: 0.24rem;
     }
 </style>

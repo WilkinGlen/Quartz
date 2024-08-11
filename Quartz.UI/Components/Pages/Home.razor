@@ -1,3 +1,11 @@
 ﻿@page "/"
 
-<CronExpressionBuilder />
+<div class="container">
+    <div class="row">
+        <div class="col-3">@this.cronExpression</div>
+        <div class="col-6">
+            <CronExpressionBuilder OnCronExpressionChanged="@this.CronExpressionBuilderOnCronExpressionChanged" />
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
